@@ -1,0 +1,19 @@
+[Unit]
+Description=Unified LLM Inference Service with vLLM
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/unified-inference-service
+# Load the .env file for MODEL_NAME and TENSOR_PARALLEL_SIZE
+EnvironmentFile=/home/ubuntu/unified-inference-service/.env
+# Use the correct virtual environment for this service
+ExecStart=/home/ubuntu/unified-inference-service/venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+
+# Ensure the service restarts if it fails
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
