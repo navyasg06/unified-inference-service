@@ -52,7 +52,7 @@ class ModelWorker(threading.Thread):
                 model=MODEL_NAME,
                 tokenizer=MODEL_NAME,
                 trust_remote_code=True,
-                dtype="float16",  
+                dtype="bfloat16",  
                 tensor_parallel_size=effective_tp_size,
                 gpu_memory_utilization=0.90,
                 max_model_len=65000,  
