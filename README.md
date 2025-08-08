@@ -2,25 +2,25 @@
 
 ## Services Overview
 
-### unified-inference.service
+1. #### unified-inference.service
 
-Role: The shared AI model server. It runs vLLM to handle GPU-intensive inference requests from both the Log Analyzer and the AI Reviewer. This is the most critical service.
+    Role: The shared AI model server. It runs vLLM to handle GPU-intensive inference requests from both the Log Analyzer and the AI Reviewer. This is the most critical service.
 
-### log-analyzer-api.service
+2. #### log-analyzer-api.service
 
-Role: The web server (Gunicorn/FastAPI) for the Log Analyzer. It exposes the public API for uploading logs and managing analysis jobs.
+    Role: The web server (Gunicorn/FastAPI) for the Log Analyzer. It exposes the public API for uploading logs and managing analysis jobs.
 
-### log-analyzer-worker.service
+3. #### log-analyzer-worker.service
 
-Role: The background job processor (Celery) for the Log Analyzer. It performs the long-running analysis of log files.
+    Role: The background job processor (Celery) for the Log Analyzer. It performs the long-running analysis of log files.
 
-### ai-reviewer-api.service
+4. #### ai-reviewer-api.service
 
-Role: The web server for the AI Code Reviewer. It serves the API for submitting code diffs and retrieving reviews.
+    Role: The web server for the AI Code Reviewer. It serves the API for submitting code diffs and retrieving reviews.
 
-### ai-reviewer-worker.service
+5. #### ai-reviewer-worker.service
 
-Role: The background job processor for the AI Code Reviewer. It executes the code review tasks.
+    Role: The background job processor for the AI Code Reviewer. It executes the code review tasks.
 
 ## Management Commands
 
